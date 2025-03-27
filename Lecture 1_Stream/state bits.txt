@@ -1,0 +1,9 @@
+In c++ , state bits indicate the state of the stream and control its flow. There are four bits in C++:
+(1)Good bit: Nothing goes wrong
+(2)Fail bit: previous operation failed , all future operations frozen(Type mismatch , file can't be opended , seekg failed)
+(3)EOF bit: previous operation reached the end of buffer content
+(4)Bad bit: some serious error occured
+
+use stream_object.eof() , stream_object.fail() to check the state of the working stream
+
+the return value of a left\right shift operation(a stream) can be used as a boolean which is True as long as fail bit is off

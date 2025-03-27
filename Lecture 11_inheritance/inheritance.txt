@@ -1,0 +1,32 @@
+Types of inheritance:
+1.Single
+A derived class with only one base class
+2.Multilevel
+A derived class with a base class and that base class is a derived  class of another
+3.Mutiple
+A derived class with multiple base class 
+4.Heirarchical
+Multiple derived classes with same base class 
+5.Hybrid
+Combination of multiple and hierarchical inheritance
+6.multipath
+A derived class with two base classes and these tow base classes have one common base class
+
+Mode of inheritance
+1.public (everyone)
+2.protected (current class and derived class)
+3.private (current class only)
+-----------------------------------------------------------------
+| BASE CLASS | DERIVED CLASS     DERIVED CLASS     DERIVED CLASS |
+-----------------------------------------------------------------
+|           | PUBLIC MODE       PROTECTED MODE    PRIVATE MODE  |
+-----------------------------------------------------------------
+|public      | public            protected         private       |
+|protected   | protected         protected         private       |
+|private     | not inherited     not inherited     not inherited |
+-----------------------------------------------------------------
+
+
+Some Rules:
+1.If you find yourself writing duplicate functions through mutiple classes , then create a base and inherite from it
+2.Use inheritance only when there is some relation exists(has a | is a)

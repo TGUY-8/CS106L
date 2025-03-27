@@ -1,0 +1,3 @@
+std::vector<> vs std::array<>
+vector -> heap allocation 
+array -> stack allocation , the compiler knows exactly how much space it takes

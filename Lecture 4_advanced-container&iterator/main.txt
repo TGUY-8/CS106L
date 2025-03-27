@@ -1,0 +1,50 @@
+Container Adaptors:
+Stack:
+just limit the functionality of a vector/deque to only push_back and pop_back
+Queue:
+limit the functionality of a deque to only allow push_back and pop_front
+Plus , only allow access to top element
+
+Associative Containers - similar to dict in Python
+- have no idea of a sequence 
+- data is accessed using the key instead of indexes
+includes:
+std::map<T1 , T2>
+std::set<T>
+std::unordered_map<T1 , T2>
+std::unordered_set<T>
+
+map:
+- store key-value pairs
+- automatically sorted by their key
+- key has to be unique
+
+set:
+- store single-item element
+- element is automatically sorted after u pass it in
+
+
+Map/Set : keys in sorted order , faster to iterate through a range of elements
+unordered-version : no order under the hood , faster to access individual elements
+
+one interesting view of set is that u can see it as a specific case of a map where there is a implicit value of either true or false
+
+iterators -> something allow us view a non-linear collection in a linear manner（container pointer）
+c.begin() -> gets an iterator to the first element of a Container
+c.end() -> gets an iterator to the pass-tne-end element of a container
+
+Iterator uses - Find
+
+const int elemTofind = 5;
+std::vector<int>::iterator it = std::find(vec.begin() , vec.end() , elemToFind);
+std::find(<ite>start_position , <ite>end_position , element) -> return the first appearence posion(a iterator) of the element otherwise the last
+if for map , it's equivalent to <map_object>.count(key) (count is actually just a call to the find function , so find is marginally faster)
+
+iterator type
+input/output: only/read, write , ++ is ok but not allowed to repeat the process (isstream ostream)
+-> 
+forward:allow multi-pass, triverse mutiple times( forward_list)
+-> 
+bidirectional:allow both ++ and -- (list, map, set)
+-> 
+random access:allow directly access any position and comparison(vector , deque , array)

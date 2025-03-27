@@ -1,0 +1,12 @@
+1) ofstream -> write to file program -> buffer -> file
+2) ifstream -> read from file -> buffer -> program
+3) fstream -> dual-directional
+
+mode_parameters:
+1) in : open for reading(default for ifstream)
+2) out :open for writing(default for ofstream)
+3) app : Append mode - adds data to the end instead of overwriting
+4) trunc : overwrites the file (default for ofstream) 
+5) binary : opens in binary mode
+
+<filestream>.is_open()   check if the file is successfully opend

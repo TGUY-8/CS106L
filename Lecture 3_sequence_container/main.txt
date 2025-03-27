@@ -1,0 +1,1 @@
+str.append() a faster way to concatenate strings than using sstream

@@ -1,0 +1,45 @@
+There are 6 special member function that complier automatically generated for u if u didn't do anything to them
+Let's suppose we have a self-implemented vector
+class vector{
+    public:
+    vector();                                 //default constructor
+    ~vector();                                //destructor
+    vector(const vector& other);              //copy constructor
+    vector& operator= (const vector& other);  //copy assignment operator
+
+    vector (vector&& vec);                    //move constructor
+    vector& operator = (vector&& vec)         //move assignment operator
+}；
+
+point1-deep copy:
+if there is pointer in class , then the default copy constructor will only make different objects's pointers point to the same place
+so in this case we have to implement our own copy assignment(copu assignment operator either)
+
+point2-delete & default
+1.use delete key-word to forbidden copy
+class vector{
+    public:
+    ...
+    vector(const vector& other) = delete;              //copy constructor
+    vector& operator= (const vector& other) = delete;  //copy assignment operator
+    ...
+}；
+2.we can also keep the default copy constructor if we declare other constructor(declare any user-defined constructor will make the default, complier produced one , disappear without default key-word)
+
+Rule of Zero:
+We should only define new onnes when the default ones won't work(work with dynamically allocate memory for instance)
+(if u don't need a constructor or a destructor or copy assignment etc. Then simply don't use it)
+
+
+class a_string_with_an_id(){
+    public:
+    // getter and setter methods
+    private:
+    int id;
+    std::string str;
+};
+
+this case, our class a_string_with_an_id has self managing variables
+
+Rule of Three:
+If u need a custom destructor, then you also probably need to define a copy constructor and copy assignment operator for your class

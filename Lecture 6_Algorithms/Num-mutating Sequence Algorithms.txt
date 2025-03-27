@@ -1,0 +1,47 @@
+the range is half-opend which means the end-iterator won'b be actually accessed(avoid undefind behavior)
+
+1) std::find(): search for a specific value in a range
+para: (begin, end, value)
+return: iterator -> first matching one otherwise `end` 
+time complexity: O(n)
+
+2)std::find_if(): search for the first element that satisfies the predicate
+(begin, end, (Unary)predicate)
+same as find()
+O(n)
+
+3)std::count(): count the number of elements in a range that match a specific value
+(begin, end, value)
+int -> num
+O(n)
+
+4)std::count_if(): count the number of elements in a range that satisfies the predicate
+(begin, end, (Unary)predicate)
+int -> num
+O(n)
+
+Mutable actually
+5)std::for_each(): applies a function or lambda to each element in a range
+(begin, end, (Unary)f)
+function object
+O(N)
+
+6)std::equal(): check if two ranges are equal(or satisfies certain condition)
+(begin_1, end_1, begin_2, (Optional)binary predicate)   -> be careful about the size , may lead to undefined behavior
+bool
+O(N)
+
+7)std::mismatch(): finds the first position where two ranges differ
+(begin_1, end_1, begin_2, (Optional)binary predicate)   -> be careful about the size , may lead to undefined behavior
+a std::pair containing iterators pointing to the first mismatched element in both ranges(or `end` and its correspoding element)
+O(N)
+
+8)std::search(): search for the first occurence of a subsequence(a range of elements) within another subsequence
+(begin_1, end_1, begin_2, end_2, (Optional)binary predicate)
+an iterator to the first element of the found subsequence(end_1 if not found)
+O(N*M)
+
+9)std::search_n(): search for the first occurence of a sequence of n consecutive elements that are equal to the given value
+(begin, end, times, value, (Opentional)binary predicate)
+an iterator to the first element of the found subse(end if not found)
+O(n)

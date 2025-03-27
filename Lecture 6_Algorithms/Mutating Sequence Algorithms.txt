@@ -1,0 +1,59 @@
+1) std::copy(): Copy elements from a source range [begin, range) to a destination range starting at d_begin
+(begin, end, d_begin)
+iterator -> end of the destination range
+O(N)
+
+2) std::copu_if(): Copy elements that satisfies the predicate to the destnation source
+(begin, end, d_begin, (Unary)predicate)
+iterator -> end of the destination range
+O(N)
+
+3) std::replace(): replace all occurences of a specific value in a range with another value
+(begin, end, old, new)
+void
+O(N)
+
+4) std::replace_if(): replace elements tht satisfy the predicate
+(begin, end, (unary)predicate, new)
+void
+O(N)
+
+5) std::swap(): swap the values of two objects
+(elem1, elem2)
+void
+O(1)
+
+6) std::swap_ranges() : swap elements between two ranges, element by element
+(begin, end, begin_)
+itarator to the end of the second range after swapping
+O(N)
+
+7) std::reverse() : reverse the order of elements in a range
+(begin, end)
+void
+O(N)
+
+8) std::rotate() : Moves elements in the range [middle, last) to the beginning, followed by elements in the range [first, middle)
+(first, middle, last)
+void
+O(N)
+
+9) std::remove() : moves all elements that are equal to a specified value to the end of the range(without actually erasing them notablely)
+(first, last, value)
+an iterator pointing to the new end of the range(one past the last element not removed) (it's importnt)
+O(N)
+
+10) std::remove_if() : moves all elements satisfies the predicate to the end of the range
+(begin, end, predicate)
+an iterator pointing to the new end of the range (one past the last element not removed)
+O(N)
+
+11) std::unique() : removes consecutive duplicate elements from a range, moving the unique elements to the front
+(begin, end, (optional)(binary)predicate)  (predicate:compares two elements, return true meaning they are considered duplicate)
+an iterator pointing to the new end of the range(one past the last unique element)
+O(N)
+
+12) std::unique_copy() : copy elements from a range to another , skipping consecutive duplicates
+(begin, end, end_, (optional binary predicate))
+an iterator pointing to the end of the output range
+O(N)

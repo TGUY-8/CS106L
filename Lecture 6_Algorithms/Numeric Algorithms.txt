@@ -1,0 +1,7 @@
+1) std::accumulate()
+
+2) std::inner_product()
+
+3) std::adjacent_difference()
+
+4) std::partial_sum()

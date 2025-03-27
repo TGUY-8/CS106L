@@ -1,0 +1,20 @@
+1) std::sort() : sorts elements in a range into non-descending order(by default)
+(begin, end, (optional)compare)
+void
+O(nlogn)
+
+2) std::stable_sort() : preserve the relative order of equivalent elements
+
+3) std::partial_sort()
+
+4) std::nth_element()
+
+5) std::partition()
+
+6) std::stable_partition()
+
+7) std::make_heap()
+
+8) std::push_heap()
+
+9) std::pop_heap()

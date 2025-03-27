@@ -1,0 +1,27 @@
+There are 40 operators you can overload
+Arithmetic: + - * / % += -= *= /= %=
+Bitwise: & | ~ !
+Relational: == != < > <= >= <=>
+Stream: << >> <<= >>=
+Logical: && || ^ &= != ^=
+Increment: ++ --
+Memory: -> ->* new new[] delete delete[]
+Misc () [] , = 
+
+
+There are two ways to overload：
+1.Member overloading -> declares the overloaded operator within the scope of your class(using this-> , only pass a `other` parameter)
+2.Non-member overloading (more recommended)
+-> a.declare the overloaded operator outside the scope of your class
+   b.define both the left and right hand side objects as parameters
+Several advantages to do so:
+a.support implicit conversion on all the parameters(only `other` instead in member-overload case)
+b.`<<` for example , must take a stream as parameter which is likely not to be a member inside the class that in this case , you can only overload it use the non-member pattern
+
+
+conclusion -> rule-of-thumb:
+1.[], (), =, -> must be implemented as members due to C++ semantics
+2.<< must be implemented as non-members
+3.if unary operator(eg. ++ ), implement as member
+4.if binary operator and treats both operands equally, implement as non-member
+5.if binary operator and not both equally, implement as member(eg. +=)

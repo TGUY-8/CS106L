@@ -1,0 +1,35 @@
+STL - Standard Templates Library
+- containers
+- Adaptors
+- Functors/Lambdas
+- Algorithms
+- Iterators
+
+Sequence Containers -> one specific container which the data it collected is sequential
+-> std::vector<T>
+-> std::deque<T>
+-> std::list<T>
+-> std::array<T>
+-> std::forward_list<T>
+
+vector:
+Create a empty vector :  vector<type> v;
+Create a vector with n copies of zero:   vector<int> v(n);
+Create a vector with n copies of a value k :   vector<int> v(n , k);
+Append k to the end of the vector:    v.push_back(k);
+Clear Vector:  v.clear();
+Get the element at index i(verify that i is in bounds): 
+int k = v.at(i);  ||    int k = v[i];
+check if the vector is empty: if(v.empty());
+
+if you accidentally access index out of bounds , C++ itself won't check for u unless you are tying to access a protected memory
+(if u write your program correctly , bounds checking will just slow your code down)
+
+A vector is the prime tool of choice in most applications , for it is fast , lightweight and intuitive
+but it only grow efficiently in one direction.
+Sometime it is useful to be able to push_front quickly!
+
+std::deque<T>
+A deque is a double end queue
+Can do everything a vector can do  , and also 
+Unlike a vector , it is possible(and fast)to push_front and pop_front

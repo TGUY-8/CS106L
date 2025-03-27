@@ -1,0 +1,33 @@
+The basic idea -> copy is expensive! 
+
+(all the things down only regarding large data structure relatate to pointers)
+So for lvalue , C++ provide solution using reference
+
+std::string& foo(const std::string& str){
+    ...
+    return v;
+}
+
+avoids two times of copy(one for parameter, one for return)
+
+but there's another big comsumption not fully used -> temporary variable( a call expression or literal for instance) -> rvalue reference
+
+void foo(std::string&& str){
+    ///
+}
+//invoke foo
+int main(){
+    foo("123");
+    //...
+}
+
+Only the parameter rvalue reference can be pass back as a return value
+
+std::move -> static_cast  , convert whatever it is to a rvalue so that the compiler will automatically invoke move constructor
+
+Rule of five , when you find any of the five should be defined , the other also should be defined
+Destructor
+Copy constructor
+Copy assignment operator 
+move constructor
+move assignment opeator

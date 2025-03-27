@@ -1,0 +1,32 @@
+program -> buffer -> outsource
+cout as a object of osstream , has a buffering machnisim:
+Before sending to the destination , data keeps storing in the terminal except encoutering folloing situations:
+1) encoutering whitespace(including ' ' , '\n' , '\t' , .etc)
+2) encoutering cin
+3) buffer is full 
+4) explicitly flushed(endl , flush)
+but actually , there are also two other mode resprectively Full buffering and No buffering
+
+
+outsource -> buffer -> program
+when you call cin and it's empty in buffer , the program will froze until you type in sth.
+when reading from the buffer , cin reads until reaching a whitespace but not consume it until the next call expression of cin
+working process:
+1) input typed into cin is buffered until Enter is pressed 
+2) cin reads from this buffer , skip the leading whitespace(if there is) , keeps reading until reach another whitespace
+Notice , when type error happend and fail bit is on , the pointer stops at the whitespace(already skipped) and fail bit is on(so , there's no cin behavior and the variable stays its default value)
+
+reason why >> with cin is a nightmare
+1.cin reads the entire line into buffer but extracts whitespace-separated tokens
+2.Trash in the buffer will make cin not promt the user for input at the right time
+3.When cin fails , all future cin oprations fail too
+
+getline(cin , <para>); reads up to '\n' , and directly consume it
+
+Integers which are never negative are often assigned type size_t
+
+auto 
+1) when you don't care what the type is(iterators)
+2) when its type is only clear from context(templates)
+3) when you don't know what the type is (lambdas)
+4) don't use it unnecessarily for return types
