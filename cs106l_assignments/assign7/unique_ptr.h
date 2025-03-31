@@ -13,6 +13,7 @@ namespace cs106l {
 template <typename T> class unique_ptr {
 private:
   /* STUDENT TODO: What data must a unique_ptr keep track of? */
+  T* ptr;
 
 public:
   /**
@@ -20,17 +21,19 @@ public:
    * @param ptr The pointer to manage.
    * @note You should avoid using this constructor directly and instead use `make_unique()`.
    */
-  unique_ptr(T* ptr) {
+  unique_ptr(T* ptr) 
+  : ptr{ptr}
+  {
     /* STUDENT TODO: Implement the constructor */
-    throw std::runtime_error("Not implemented: unique_ptr(T* ptr)");
   }
 
   /**
    * @brief Constructs a new `unique_ptr` from `nullptr`.
    */
-  unique_ptr(std::nullptr_t) {
+  unique_ptr(std::nullptr_t) 
+  : ptr{nullptr_t}
+  {
     /* STUDENT TODO: Implement the nullptr constructor */
-    throw std::runtime_error("Not implemented: unique_ptr(std::nullptr_t)");
   }
 
   /**
@@ -45,7 +48,7 @@ public:
    */
   T& operator*() {
     /* STUDENT TODO: Implement the dereference operator */
-    throw std::runtime_error("Not implemented: operator*()");
+    return *ptr;
   }
 
   /**
@@ -54,7 +57,7 @@ public:
    */
   const T& operator*() const {
     /* STUDENT TODO: Implement the dereference operator (const) */
-    throw std::runtime_error("Not implemented: operator*() const");
+    return const (*ptr);
   }
 
   /**

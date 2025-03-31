@@ -1,0 +1,11 @@
+Exceptions are a way for handling errors when they arise in code by "thrown" them
+so that we can write code that let us handle exceptions in order to continue in our code without necessarily erroring
+try{
+    //code that we check for exceptions -> using throw to catch exceptions
+catch([exceptional type] e1){
+    // behaviors when we encounter an error 
+}
+catch([exception type] e2){
+
+}
+}

@@ -1,0 +1,31 @@
+take a look at the following code
+std::string readfiles(const std::string& filepath){
+    std::ifstream ifs;
+    ifs.open(filepath);
+
+    ......
+
+    ifs.close();  // so, if any exception is thrown and the function is forced to end , this line will never be executed
+}
+
+In case that memory leak could lead to huge problem, RAII is recommended -> Resource acquisition is initialization which more readablely -> constructor acquires, destructor releases
+The code should be changed to:
+std::string readfiles(const std::string& filepath){
+    std::ifstream ifs(filepath) //constructor acquires
+
+    ...
+
+    //u are not supposed to do like ifs.close() , instead , let the destructor take over(self management)
+
+}
+
+How do we implement this dealing with heap allocation? -> smart pointers -> a "wrapper" to wrap a single pointer to a object with constructor and destructor -> automatically releases the memory when goes out of scope
+1)std::unique_ptr
+~uniquely owns its resources , can't be copied (imagine if allowed -> may delete an unknown space)
+2)std::shared_ptr
+~can make copies(refrences), destruct when all the copies goes out of scope(there's a build in counter , ++ when constructor is called , -- when destructor is called)
+
+std::unique_ptr<T> uptr = std::make_unique<T>();
+auto uptr = std::make_unique<T>();
+
+std::shared_ptr<T> sptr = std::make_shared<T>();
